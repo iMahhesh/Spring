@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+  <!-- configure driver manager data source -->
+  <bean id="drds"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+         <property name="driverClassName" value = "oracle.jdbc.driver.OracleDriver"/>
+         <property name="url" value = "jdbc:oracle:thin:@localhost:1521:myorcl"/>
+         <property name="username" value = "scott"/>
+         <property name="password" value = "mahesh"/>
+  </bean>
+  
+  <!-- DAO class config -->
+  <bean id = "studDAO" class = "com.nit.dao.StudentDAOImpl">
+     <constructor-arg ref = "drds"/>
+    </bean>
+</beans>
